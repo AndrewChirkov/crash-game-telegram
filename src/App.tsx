@@ -1,7 +1,11 @@
-import "./App.css";
+import { Crash } from './components/game/Crash'
 
 function App() {
-  return <></>;
+  return (
+    <div className='app-container'>
+      <Crash />
+    </div>
+  )
 }
 
-export default App;
+export default App

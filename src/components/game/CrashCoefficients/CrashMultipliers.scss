@@ -1,0 +1,49 @@
+.crash-multipliers {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+  .crash-multipliers-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    height: 100%;
+
+    .crash-multiplier-grid {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      height: 20%;
+      margin-top: 20px;
+
+      .crash-multiplier-text {
+        flex-shrink: 0;
+        padding-left: 5px;
+        padding-right: 10px;
+      }
+
+      .crash-multiplier-line {
+        height: 1px;
+        width: 100%;
+        border-bottom: dashed 1px rgba(151, 151, 151, 0.3);
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .crash-multipliers-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: 700;
+  }
+}
