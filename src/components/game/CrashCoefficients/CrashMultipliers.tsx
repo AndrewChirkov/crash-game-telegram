@@ -29,7 +29,7 @@ export const CrashMultipliers = (props: CrashMultipliersProps) => {
     <div className='crash-multipliers'>
       <div className='crash-multipliers-grid'>
         {targetMultipliers.map((targetMultiplier) => (
-          <div className='crash-multiplier-grid'>
+          <div key={targetMultiplier} className='crash-multiplier-grid'>
             <span className='crash-multiplier-text'>{targetMultiplier}</span>
             <span className='crash-multiplier-line'></span>
           </div>

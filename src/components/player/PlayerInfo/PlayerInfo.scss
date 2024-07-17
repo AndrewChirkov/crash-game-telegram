@@ -1,0 +1,89 @@
+.player-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 100px;
+  padding: 10px;
+  padding-right: 17.5px;
+  background-color: var(--bg-color-secondary);
+  height: 60px;
+  gap: 5px;
+
+  .player-info-profile {
+    display: flex;
+    align-items: center;
+    gap: 7.5px;
+  }
+
+  .player-info-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    flex-shrink: 0;
+    background-color: var(--bg-color-tertiary);
+  }
+
+  .player-info-col {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    flex-shrink: 0;
+
+    .player-info-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .player-info-level {
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+
+  .player-info-balance {
+    display: flex;
+    gap: 10px;
+
+    .player-info-amount {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 10px;
+      width: 70px;
+      height: 25px;
+      border-radius: 100px;
+      background-color: var(--bg-color-tertiary);
+      font-weight: 700;
+      font-size: 13px;
+
+      span.currency {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        width: 25px;
+        height: 25px;
+        flex-shrink: 0;
+        border-radius: 100%;
+        transform-origin: left;
+        transform: scale(1.1) translateX(5px);
+
+        &.stars {
+          background-color: rgb(207, 182, 68);
+        }
+
+        &.diamonds {
+          background-color: rgb(68, 105, 207);
+        }
+      }
+    }
+  }
+}

@@ -2,13 +2,15 @@ import { useEffect, useRef, useState } from 'react'
 import RocketImage from './../../assets/game/rocket.svg'
 import './Crash.scss'
 import { CrashMultipliers } from './CrashCoefficients/CrashMultipliers'
+import { CrashGameButton } from './CrashGameButton/CrashGameButton'
+import { CrashHistory } from './CrashHistory/CrashHistory'
 
-const ROCKET_SPRITE_WIDTH = 250
+const ROCKET_SPRITE_WIDTH = 260
 const ROCKET_SPRITE_HEIGHT = 300
 const ROCKET_LINE_COLOR = '#4da6ff'
 
 const OFFSET_Y = 20
-const OFFSET_X = 60
+const OFFSET_X = 120
 
 const MULTIPLIER_ADJUSTER = 0.002
 
@@ -91,7 +93,7 @@ export const Crash = () => {
 
       // Main line
       ctx.beginPath()
-      ctx.moveTo(60, canvas.height - 25)
+      ctx.moveTo(120, canvas.height - 30)
 
       points.forEach((point) => {
         ctx.lineTo(point.x, point.y)
@@ -127,9 +129,15 @@ export const Crash = () => {
   }, [])
 
   return (
-    <div className='game-container'>
-      <canvas ref={canvasRef} id='crash-game' width='1920' height='1080'></canvas>
-      <CrashMultipliers multiplier={multiplier} />
-    </div>
+    <>
+      <div className='game-wrapper'>
+        <div className='game-container'>
+          <canvas ref={canvasRef} id='crash-game' width='1920' height='1080'></canvas>
+          <CrashMultipliers multiplier={multiplier} />
+        </div>
+        <CrashHistory />
+      </div>
+      <CrashGameButton multiplier={multiplier} />
+    </>
   )
 }

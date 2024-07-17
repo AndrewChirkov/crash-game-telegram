@@ -1,0 +1,20 @@
+.crash-game-button-wrapper {
+  display: flex;
+  margin: 10px auto;
+
+  .crash-game-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 700;
+    width: 100%;
+    background-color: var(--bg-color-tertiary);
+    border-radius: 10px;
+    height: 50px;
+
+    span.multiplier {
+      color: greenyellow;
+    }
+  }
+}

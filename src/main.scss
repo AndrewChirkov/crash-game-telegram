@@ -7,6 +7,11 @@
   font-weight: 500;
 }
 
+button {
+  border: none;
+  outline: none;
+}
+
 :root {
   --bg-color-primary: #1a2c38;
   --bg-color-secondary: #283c4a;

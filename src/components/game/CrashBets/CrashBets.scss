@@ -1,0 +1,83 @@
+.crash-bets-wrapper {
+  display: flex;
+  position: fixed;
+  max-width: 500px;
+  width: 100%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0px 10px;
+}
+
+.crash-bets {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 15px 15px 0px 0px;
+  padding: 20px;
+  background-color: var(--bg-color-secondary);
+  gap: 5px;
+  font-weight: 700;
+  padding-bottom: 30px;
+
+  .crash-bets-maker {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: calc(48% - 2.5px);
+  }
+
+  .crash-bets-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .crash-bets-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    .crash-bets-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5px;
+      background-color: var(--bg-color-tertiary);
+      border-radius: 5px;
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .crash-bets-amount {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2.5px;
+      background-color: var(--bg-color-tertiary);
+      border-radius: 5px;
+      width: 100%;
+      height: 40px;
+      font-weight: 700;
+    }
+  }
+
+  .crash-bets-parts {
+    display: flex;
+    width: 100%;
+
+    .crash-bets-buttons {
+      display: flex;
+      width: 100%;
+    }
+
+    .crash-bets-button {
+      height: 40px;
+      width: calc(100% / 3 - (20px / 3));
+    }
+  }
+}
