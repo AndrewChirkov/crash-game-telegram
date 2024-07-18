@@ -1,143 +1,62 @@
 import { useEffect, useRef, useState } from 'react'
-import RocketImage from './../../assets/game/rocket.svg'
 import './Crash.scss'
+import CrashChart from './CrashChart/CrashChart'
 import { CrashMultipliers } from './CrashCoefficients/CrashMultipliers'
 import { CrashGameButton } from './CrashGameButton/CrashGameButton'
 import { CrashHistory } from './CrashHistory/CrashHistory'
 
-const ROCKET_SPRITE_WIDTH = 260
-const ROCKET_SPRITE_HEIGHT = 300
-const ROCKET_LINE_COLOR = '#4da6ff'
-
-const OFFSET_Y = 20
-const OFFSET_X = 120
-
 const MULTIPLIER_ADJUSTER = 0.002
+const MAX_Y_FACTOR = 1.75
+const INITIAL_MAX_Y = 2
 
 export const Crash = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
   const [multiplier, setMultiplier] = useState(1)
+  const [multiplierData, setMultiplierData] = useState([1])
+  const [maxY, setMaxY] = useState(INITIAL_MAX_Y)
+  const [gameOver, setGameOver] = useState(false)
+  const multiplierInterval = useRef<number>()
 
   useEffect(() => {
-    if (!canvasRef.current) return
-
-    const canvas = canvasRef.current
-
-    const ctx = canvas.getContext('2d')
-
-    const rocketImg = new Image()
-    rocketImg.src = RocketImage
-
-    if (!canvas || !ctx) return
-
-    let running = false
-    let stopLine = true
-
-    let lineMultiplier = 1.0
-    let startTime = 0
-    let rocketX = 0
-    let rocketY = 0
-    let staticX = 0
-    let staticY = 0
-    let points: { x: number; y: number }[] = []
-
-    let frame: number = 0
-    let multiplierInterval: number
-
     const startGame = () => {
-      if (running) return
+      setMultiplier(1)
+      setMultiplierData([1])
+      setMaxY(INITIAL_MAX_Y)
 
-      running = true
-      stopLine = false
-      startTime = Date.now()
-      points = []
+      multiplierInterval.current = setInterval(() => {
+        setMultiplier((prevMultiplier) => {
+          const newMultiplier = prevMultiplier + MULTIPLIER_ADJUSTER
+          const dataset = [1, newMultiplier]
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      frame = requestAnimationFrame(update)
-
-      multiplierInterval = setInterval(() => {
-        setMultiplier((prevMultiplier) => prevMultiplier + MULTIPLIER_ADJUSTER)
-      }, 20)
-    }
-
-    const update = () => {
-      if (!running) return
-
-      const elapsedTime = (Date.now() - startTime) / 500
-      lineMultiplier = 0 + Math.exp(elapsedTime / 4)
-      const x = stopLine ? staticX : elapsedTime * 80 + OFFSET_X
-      const y = stopLine ? staticY : canvas.height - lineMultiplier * 15 - OFFSET_Y
-      const verticalOffset = 5 * Math.sin(elapsedTime * 5) // Rocket jumping offset
-
-      if ((!stopLine && x >= canvas.width * 0.7) || y <= canvas.height * 0.3) {
-        stopLine = true
-        staticX = x
-        staticY = y
-        rocketX = x
-        rocketY = y
-      }
-
-      if (!stopLine) {
-        points.push({ x, y })
-        rocketX = x
-        rocketY = y
-      } else {
-        rocketX = staticX
-        rocketY = staticY
-      }
-
-      points.push({ x, y })
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // Main line
-      ctx.beginPath()
-      ctx.moveTo(120, canvas.height - 30)
-
-      points.forEach((point) => {
-        ctx.lineTo(point.x, point.y)
-      })
-
-      ctx.strokeStyle = ROCKET_LINE_COLOR
-      ctx.lineWidth = 20
-      ctx.stroke()
-      ctx.closePath()
-
-      if (rocketImg) {
-        const rocketAngle = Math.atan2(y, x)
-        const rocketTranslateX = x - 15
-        const rocketTranslateY = y + verticalOffset * 2
-
-        ctx.save()
-        ctx.translate(rocketTranslateX, rocketTranslateY)
-        ctx.rotate(rocketAngle)
-        ctx.drawImage(rocketImg, -ROCKET_SPRITE_WIDTH / 2, -ROCKET_SPRITE_HEIGHT, ROCKET_SPRITE_WIDTH, ROCKET_SPRITE_HEIGHT)
-        ctx.restore()
-      }
-
-      frame = requestAnimationFrame(update)
+          setMultiplierData(dataset)
+          setMaxY((prevMaxY) => Math.max(prevMaxY, newMultiplier * MAX_Y_FACTOR))
+          return newMultiplier
+        })
+      }, 10)
     }
 
     startGame()
 
     return () => {
-      running = false
-      clearInterval(multiplierInterval)
-      cancelAnimationFrame(frame)
+      clearInterval(multiplierInterval.current)
     }
   }, [])
+
+  const handleGameOver = () => {
+    setMultiplierData((prevMultiplierData) => [...prevMultiplierData, -10])
+    setGameOver(true)
+    clearInterval(multiplierInterval.current)
+  }
 
   return (
     <>
       <div className='game-wrapper'>
-        <div className='game-container'>
-          <canvas ref={canvasRef} id='crash-game' width='1920' height='1080'></canvas>
-          <CrashMultipliers multiplier={multiplier} />
+        <div className={`game-container ${gameOver ? 'game-over' : ''}`}>
+          <CrashChart data={multiplierData} maxY={maxY} gameOver={gameOver} />
+          <CrashMultipliers multiplier={multiplier} gameOver={gameOver} />
         </div>
         <CrashHistory />
       </div>
-      <CrashGameButton multiplier={multiplier} />
+      <CrashGameButton onClick={handleGameOver} multiplier={multiplier} />
     </>
   )
 }
