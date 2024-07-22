@@ -1,6 +1,6 @@
 import { CategoryScale, Chart, Legend, LineController, LineElement, LinearScale, PointElement, Title, Tooltip } from 'chart.js'
 import { useEffect, useRef } from 'react'
-import RocketIcon from './../../../assets/game/rocket.svg'
+import RocketIcon from './../../../../assets/game/rocket.svg'
 
 Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryScale, Title, Tooltip, Legend)
 

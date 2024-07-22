@@ -1,0 +1,49 @@
+.dice-multiplier {
+  position: relative;
+  height: 275px;
+  width: 100%;
+  background-color: var(--bg-color-secondary);
+  margin: 15px 0px;
+  border-radius: 10px;
+
+  .dice-multiplier-background {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -70%);
+    font-size: 100px;
+    font-weight: 800;
+    opacity: 0.04;
+  }
+
+  .dice-multiplier-main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -70%);
+    font-size: 50px;
+    font-weight: 700;
+  }
+
+  .dice-multiplier-chance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .dice-multiplier-chance-amount {
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .dice-multiplier-chance-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: rgb(158, 165, 174);
+    }
+  }
+}

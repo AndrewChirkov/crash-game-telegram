@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './Crash.scss'
+import { CrashBets } from './CrashBets/CrashBets'
 import CrashChart from './CrashChart/CrashChart'
 import { CrashMultipliers } from './CrashCoefficients/CrashMultipliers'
 import { CrashGameButton } from './CrashGameButton/CrashGameButton'
@@ -57,6 +58,7 @@ export const Crash = () => {
         <CrashHistory />
       </div>
       <CrashGameButton onClick={handleGameOver} multiplier={multiplier} />
+      <CrashBets />
     </>
   )
 }
