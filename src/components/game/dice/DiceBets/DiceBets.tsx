@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { resetGame, rollGame, setResultGame } from '../../../../store/dice/dice.slice'
 import './DiceBets.scss'
 
 const AMOUNT_STEP = 100
@@ -6,6 +8,8 @@ const TABLE_LIMITS_MAX = 10000
 
 export const DiceBets = () => {
   const [betAmount, setBetAmount] = useState(AMOUNT_STEP)
+
+  const dispatch = useDispatch()
 
   const increaseBetAmount = () => {
     const updatedBetAmount = betAmount + AMOUNT_STEP
@@ -33,6 +37,15 @@ export const DiceBets = () => {
 
   const placeMaxBetAmount = () => {
     setBetAmount(TABLE_LIMITS_MAX)
+  }
+
+  const startGame = () => {
+    dispatch(resetGame())
+    dispatch(rollGame())
+
+    setTimeout(() => {
+      dispatch(setResultGame())
+    }, 5000)
   }
 
   return (
@@ -66,7 +79,9 @@ export const DiceBets = () => {
         <div className='dice-bets-roll'>
           <div className='dice-bets-title'>Start game</div>
           <div className='dice-bets-buttons'>
-            <button className='dice-bets-button'>Roll</button>
+            <button className='dice-bets-button' onClick={startGame}>
+              Roll
+            </button>
           </div>
         </div>
       </div>

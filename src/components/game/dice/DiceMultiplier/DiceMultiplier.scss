@@ -1,28 +1,56 @@
 .dice-multiplier {
   position: relative;
-  height: 275px;
+  height: 270px;
   width: 100%;
   background-color: var(--bg-color-secondary);
-  margin: 15px 0px;
+  margin: 10px 0px;
   border-radius: 10px;
+
+  .dice-multiplier-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    font-weight: 800;
+    font-size: 30px;
+
+    &.win {
+      color: rgb(102, 213, 102);
+    }
+
+    &.lose {
+      color: rgb(230, 58, 58);
+    }
+  }
 
   .dice-multiplier-background {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -70%);
-    font-size: 100px;
-    font-weight: 800;
+    transform: translate(-50%, -60%);
     opacity: 0.04;
+
+    span {
+      font-size: 100px;
+      font-weight: 800;
+    }
   }
 
   .dice-multiplier-main {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -70%);
+    transform: translate(-50%, -60%);
     font-size: 50px;
     font-weight: 700;
+
+    span {
+      font-size: 50px;
+      font-weight: 700;
+    }
   }
 
   .dice-multiplier-chance {

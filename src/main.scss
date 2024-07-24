@@ -21,3 +21,11 @@ button {
 body {
   background-color: var(--bg-color-primary);
 }
+
+.app-container {
+  max-width: 500px;
+  overflow: hidden;
+  margin: 0 auto;
+  height: 100dvh;
+  padding: 10px;
+}
