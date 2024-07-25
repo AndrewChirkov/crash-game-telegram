@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import { Crash } from './components/game/crash/Crash'
 import { Dice } from './components/game/dice/Dice'
+import { Slide } from './components/game/slide/Slide'
 import { PlayerInfo } from './components/player/PlayerInfo/PlayerInfo'
 
 const enum Games {
   Crash,
-  Dice
+  Dice,
+  Slide
 }
 
 function App() {
-  const [game, setGame] = useState(Games.Dice)
+  const [game, setGame] = useState(Games.Slide)
 
   const renderGame = () => {
     switch (game) {
@@ -17,6 +19,8 @@ function App() {
         return <Crash />
       case Games.Dice:
         return <Dice />
+      case Games.Slide:
+        return <Slide />
       default:
         return null
     }
