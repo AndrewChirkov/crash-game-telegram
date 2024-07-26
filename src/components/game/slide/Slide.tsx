@@ -5,7 +5,6 @@ export const Slide = () => {
   return (
     <div className='slide-wrapper'>
       <SlideRoulette />
-
       <SlideBets />
     </div>
   )
