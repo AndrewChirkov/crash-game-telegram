@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { diceReducer } from './dice/dice.slice'
+import { minesReducer } from './mines/mines.slice.ts'
 
 export const store = configureStore({
   reducer: {
-    dice: diceReducer
+    dice: diceReducer,
+    mines: minesReducer
   }
 })
 

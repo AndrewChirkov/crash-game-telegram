@@ -3,15 +3,17 @@ import { Crash } from './components/game/crash/Crash'
 import { Dice } from './components/game/dice/Dice'
 import { Slide } from './components/game/slide/Slide'
 import { PlayerInfo } from './components/player/PlayerInfo/PlayerInfo'
+import { Mines } from './components/game/mines/Mines.tsx'
 
 const enum Games {
   Crash,
   Dice,
-  Slide
+  Slide,
+  Mines
 }
 
 function App() {
-  const [game, setGame] = useState(Games.Slide)
+  const [game] = useState(Games.Mines)
 
   const renderGame = () => {
     switch (game) {
@@ -21,6 +23,8 @@ function App() {
         return <Dice />
       case Games.Slide:
         return <Slide />
+      case Games.Mines:
+        return <Mines />
       default:
         return null
     }
