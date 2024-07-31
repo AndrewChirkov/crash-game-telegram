@@ -1,0 +1,120 @@
+.mines-bets-wrapper {
+  display: flex;
+  position: fixed;
+  max-width: 500px;
+  width: 100%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0px 10px;
+}
+
+.mines-bets {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 15px 15px 0px 0px;
+  padding: 20px;
+  background-color: var(--bg-color-secondary);
+  gap: 5px;
+  font-weight: 700;
+  padding-bottom: 30px;
+
+  .mines-bets-maker {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: calc(48% - 2.5px);
+  }
+
+  .mines-bets-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .mines-bets-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    .mines-bets-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5px;
+      background-color: var(--bg-color-tertiary);
+      border-radius: 5px;
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .mines-play-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5px;
+      background-color: var(--bg-color-tertiary);
+      border-radius: 5px;
+      height: 40px;
+      width: 100%;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+
+      &.playing {
+        background-color: mediumseagreen;
+      }
+    }
+
+    .mines-bets-amount {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2.5px;
+      background-color: var(--bg-color-tertiary);
+      border-radius: 5px;
+      width: 100%;
+      height: 40px;
+      font-weight: 700;
+    }
+  }
+
+  .mines-bets-parts {
+    display: flex;
+    width: 100%;
+
+    .mines-bets-buttons {
+      display: flex;
+      width: 100%;
+    }
+
+    .mines-bets-button {
+      height: 40px;
+      width: calc(100% / 3 - (20px / 3));
+    }
+  }
+
+  .mines-bets-roll {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: calc(48% - 2.5px);
+
+    .mines-bets-buttons {
+      display: flex;
+      width: 100%;
+
+      .mines-bets-button {
+        height: 90px;
+        width: 100%;
+        font-size: 18px;
+      }
+    }
+  }
+}

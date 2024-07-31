@@ -1,5 +1,9 @@
 export interface MinesState {
   field: FieldCell[][]
+  playing: boolean
+  result?: Result
+  resultMultiplier?: number
+  openedCellsCount?: number
 }
 
 export interface FieldCell {
@@ -11,4 +15,9 @@ export interface FieldCell {
 export const enum Field {
   Diamond,
   Mine
+}
+
+export const enum Result {
+  Lose,
+  Won
 }

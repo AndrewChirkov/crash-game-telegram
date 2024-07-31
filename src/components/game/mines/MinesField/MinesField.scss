@@ -1,4 +1,5 @@
 .mines-field-wrapper {
+    position: relative;
   display: flex;
   width: 100%;
   padding: 15px 10px;
@@ -13,6 +14,10 @@
     border-radius: 10px;
     gap: 5px;
     background-color: var(--bg-color-secondary);
+
+    &.has-result {
+      filter: brightness(0.7);
+    }
   }
 
   .mines-field-row {
@@ -41,7 +46,16 @@
         background-size: contain;
       }
 
+      &.opened {
+        background-color: #1a2c38;
+
+        span {
+          animation: openCell 0.9s ease forwards;
+        }
+      }
+
       &.diamond {
+
         span {
           background-image: url("../../../../assets/game/diamond.svg");
         }
@@ -58,5 +72,90 @@
         margin-top: -4px;
       }
     }
+  }
+
+
+  .mines-field-result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    width: calc((100vw - 80px) / 1.5);
+    height: calc((100vw - 80px) / 2);
+    border-radius: 10px;
+    background-color: var(--bg-color-tertiary);
+    box-shadow:0 3px #253644;
+    opacity: 0;
+    gap: 10px;
+    padding: 10px;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    .field-cell-text {
+      font-weight: 700;
+      font-size: 25px;
+
+      &.won {
+        color: mediumseagreen;
+      }
+
+      &.lose {
+        color: #ff5e5e;
+      }
+    }
+
+    .field-cell-icon {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      &.diamond {
+        background-image: url("../../../../assets/game/diamond.svg");
+      }
+
+      &.mine {
+        background-image: url("../../../../assets/game/mine.svg");
+      }
+    }
+
+    .field-cell-coeff {
+      position: absolute;
+      top: calc(50% - 5px);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 35px;
+      font-weight: 800;
+      text-shadow: 1px 1px rgba(25, 36, 47, 0.7);
+    }
+
+    &.has-result {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+@keyframes openCell {
+  0% {
+    transform: scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.5) rotate(10deg);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
   }
 }
