@@ -1,0 +1,60 @@
+.baccarat-result {
+  width: 100%;
+  height: 80px;
+  background-color: var(--bg-color-secondary);
+  border-radius: 15px;
+  transform-origin: center;
+  animation: resultIn 0.5s ease forwards;
+
+  .baccarat-result-background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    &.Player {
+      background: linear-gradient(90deg, rgba(0,0,0,0) 0%, #113c7c 50%, rgba(0,0,0,0) 100%);
+    }
+
+    &.Banker {
+      background: linear-gradient(90deg, rgba(0,0,0,0) 0%, #8A1313FF 50%, rgba(0,0,0,0) 100%);
+    }
+
+    &.Tie {
+      background: linear-gradient(90deg, rgba(0,0,0,0) 0%, #127E11FF 50%, rgba(0,0,0,0) 100%);
+    }
+  }
+
+  .win-fields {
+    display: flex;
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  .win-amount {
+    display: flex;
+    font-size: 18px;
+    font-weight: 800;
+    color: #e1bb00;
+  }
+}
+
+@keyframes resultIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,172 @@
+.baccarat-card-container {
+  display: flex;
+
+  .baccarat-card-background {
+    display: flex;
+    flex-shrink: 0;
+    width: 28px;
+    height: 37px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &.C2 {
+      background-image: url("../../../../assets/cards/C2.svg");
+    }
+    &.C3 {
+      background-image: url("../../../../assets/cards/C3.svg");
+    }
+    &.C4 {
+      background-image: url("../../../../assets/cards/C4.svg");
+    }
+    &.C5 {
+      background-image: url("../../../../assets/cards/C5.svg");
+    }
+    &.C6 {
+      background-image: url("../../../../assets/cards/C6.svg");
+    }
+    &.C7 {
+      background-image: url("../../../../assets/cards/C7.svg");
+    }
+    &.C8 {
+      background-image: url("../../../../assets/cards/C8.svg");
+    }
+    &.C9 {
+      background-image: url("../../../../assets/cards/C9.svg");
+    }
+    &.C10 {
+      background-image: url("../../../../assets/cards/C10.svg");
+    }
+    &.CJ {
+      background-image: url("../../../../assets/cards/CJ.svg");
+    }
+    &.CQ {
+      background-image: url("../../../../assets/cards/CQ.svg");
+    }
+    &.CK {
+      background-image: url("../../../../assets/cards/CK.svg");
+    }
+    &.CA {
+      background-image: url("../../../../assets/cards/CA.svg");
+    }
+    &.D2 {
+      background-image: url("../../../../assets/cards/D2.svg");
+    }
+    &.D3 {
+      background-image: url("../../../../assets/cards/D3.svg");
+    }
+    &.D4 {
+      background-image: url("../../../../assets/cards/D4.svg");
+    }
+    &.D5 {
+      background-image: url("../../../../assets/cards/D5.svg");
+    }
+    &.D6 {
+      background-image: url("../../../../assets/cards/D6.svg");
+    }
+    &.D7 {
+      background-image: url("../../../../assets/cards/D7.svg");
+    }
+    &.D8 {
+      background-image: url("../../../../assets/cards/D8.svg");
+    }
+    &.D9 {
+      background-image: url("../../../../assets/cards/D9.svg");
+    }
+    &.D10 {
+      background-image: url("../../../../assets/cards/D10.svg");
+    }
+    &.DJ {
+      background-image: url("../../../../assets/cards/DJ.svg");
+    }
+    &.DQ {
+      background-image: url("../../../../assets/cards/DQ.svg");
+    }
+    &.DK {
+      background-image: url("../../../../assets/cards/DK.svg");
+    }
+    &.DA {
+      background-image: url("../../../../assets/cards/DA.svg");
+    }
+    &.H2 {
+      background-image: url("../../../../assets/cards/H2.svg");
+    }
+    &.H3 {
+      background-image: url("../../../../assets/cards/H3.svg");
+    }
+    &.H4 {
+      background-image: url("../../../../assets/cards/H4.svg");
+    }
+    &.H5 {
+      background-image: url("../../../../assets/cards/H5.svg");
+    }
+    &.H6 {
+      background-image: url("../../../../assets/cards/H6.svg");
+    }
+    &.H7 {
+      background-image: url("../../../../assets/cards/H7.svg");
+    }
+    &.H8 {
+      background-image: url("../../../../assets/cards/H8.svg");
+    }
+    &.H9 {
+      background-image: url("../../../../assets/cards/H9.svg");
+    }
+    &.H10 {
+      background-image: url("../../../../assets/cards/H10.svg");
+    }
+    &.HJ {
+      background-image: url("../../../../assets/cards/HJ.svg");
+    }
+    &.HQ {
+      background-image: url("../../../../assets/cards/HQ.svg");
+    }
+    &.HK {
+      background-image: url("../../../../assets/cards/HK.svg");
+    }
+    &.HA {
+      background-image: url("../../../../assets/cards/HA.svg");
+    }
+    &.S2 {
+      background-image: url("../../../../assets/cards/S2.svg");
+    }
+    &.S3 {
+      background-image: url("../../../../assets/cards/S3.svg");
+    }
+    &.S4 {
+      background-image: url("../../../../assets/cards/S4.svg");
+    }
+    &.S5 {
+      background-image: url("../../../../assets/cards/S5.svg");
+    }
+    &.S6 {
+      background-image: url("../../../../assets/cards/S6.svg");
+    }
+    &.S7 {
+      background-image: url("../../../../assets/cards/S7.svg");
+    }
+    &.S8 {
+      background-image: url("../../../../assets/cards/S8.svg");
+    }
+    &.S9 {
+      background-image: url("../../../../assets/cards/S9.svg");
+    }
+    &.S10 {
+      background-image: url("../../../../assets/cards/S10.svg");
+    }
+    &.SJ {
+      background-image: url("../../../../assets/cards/SJ.svg");
+    }
+    &.SQ {
+      background-image: url("../../../../assets/cards/SQ.svg");
+    }
+    &.SK {
+      background-image: url("../../../../assets/cards/SK.svg");
+    }
+    &.SA {
+      background-image: url("../../../../assets/cards/SA.svg");
+    }
+  }
+}

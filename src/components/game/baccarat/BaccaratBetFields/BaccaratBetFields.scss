@@ -1,0 +1,160 @@
+.baccarat-bet-fields {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  .bet-fields-score {
+    position: absolute;
+    font-size: 23px;
+    font-weight: 800;
+
+    &.player {
+      top: 2%;
+      left: 30%;
+    }
+
+    &.banker {
+      top: 2%;
+      right: 30%;
+    }
+  }
+
+  .bet-field-cards {
+    position: absolute;
+    display: flex;
+    gap: 2px;
+    top: 17.5%;
+
+    .baccarat-card-container {
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    &.player {
+      left: 2%;
+
+      .baccarat-card-container {
+        &:nth-child(3) {
+          animation: fadeInHorizontalRight 0.4s ease forwards;
+        }
+      }
+    }
+
+    &.banker {
+      right: 2%;
+      flex-direction: row-reverse;
+
+      .baccarat-card-container {
+
+        &:nth-child(3) {
+          animation: fadeInHorizontalLeft 0.4s ease forwards;
+        }
+      }
+    }
+  }
+
+  .baccarat-bet-field {
+    position: absolute;
+
+    &.player {
+      top: 40%;
+      left: 6%;
+    }
+
+    &.banker {
+      top: 40%;
+      right: 6%;
+    }
+
+    &.tie {
+      top: 40%;
+      left: 40%;
+    }
+
+    &.player-pair {
+      bottom: 8.5%;
+      left: 2.5%;
+    }
+
+    &.banker-pair {
+      bottom: 8.5%;
+      right: 28%;
+    }
+  }
+
+  .bet-field-amount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    width: 65px;
+    height: 25px;
+    border-radius: 100px;
+    background-color: var(--bg-color-tertiary);
+    font-weight: 700;
+    font-size: 13px;
+    animation: fadeIn 0.4s ease forwards;
+
+    span.currency {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      width: 25px;
+      height: 25px;
+      flex-shrink: 0;
+      border-radius: 100%;
+      transform-origin: left;
+      transform: scale(1.1) translateX(5px);
+
+      &.stars {
+        background-color: rgb(207, 182, 68);
+      }
+
+      &.diamonds {
+        background-color: rgb(68, 105, 207);
+      }
+    }
+  }
+}
+
+
+@keyframes fadeIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInHorizontalLeft {
+  0% {
+    transform: scale(0.5) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translateX(-6px) rotate(90deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInHorizontalRight {
+  0% {
+    transform: scale(0.5) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translateX(6px) rotate(90deg);
+    opacity: 1;
+  }
+}
+
+

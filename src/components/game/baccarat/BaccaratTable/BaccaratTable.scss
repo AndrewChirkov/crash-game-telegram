@@ -1,0 +1,67 @@
+.baccarat-table {
+  position: relative;
+  margin: 20px auto 10px;
+
+  svg {
+    overflow: visible;
+  }
+
+  .field-name {
+    font-weight: 800;
+    font-size: 18px;
+    fill: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+
+    &.pair {
+      font-size: 14px;
+    }
+  }
+
+  .bet-field {
+    transform-origin: center center;
+    transition: transform 0.15s ease;
+
+    &.blink {
+      animation: blinkField 1s ease infinite;
+
+      &.player-pair {
+        transform-origin: bottom right;
+      }
+
+      &.banker-pair {
+        transform-origin: bottom left;
+      }
+    }
+
+    &.player-pair {
+      transform-origin: bottom left;
+    }
+
+    &.banker-pair {
+      transform-origin: bottom right;
+    }
+
+    &:active {
+      fill-opacity: 1 !important;
+      transform: scale(0.95);
+    }
+  }
+}
+
+
+@keyframes blinkField {
+  0% {
+    transform: scale(1);
+    fill-opacity: 0.7 !important;
+  }
+
+  50% {
+    transform: scale(1.05);
+    fill-opacity: 1 !important;
+  }
+
+  100% {
+    transform: scale(1);
+    fill-opacity: 0.7 !important;
+  }
+}
